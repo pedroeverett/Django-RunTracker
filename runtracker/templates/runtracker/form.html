@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Run Tracker App</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="{% static 'runtracker/bs/css/flatly.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'runtracker/styles.css' %}" />
+	</head>
+	<body>
+
+		<div class="container-fluid" id="wrapper">
+			<div class="main-row">
+				<div class="form-main-col" id="content">
+					<h2>ADD A NEW RUN</h2>
+					<form action="{% url 'add' %}" method="POST" role="form">
+						{% csrf_token %}
+							<table class="main-table">
+								<tr class="table-group-item">
+									<td>DATE:</td>
+									<td>{{ form.date }}</td>
+								</tr>
+								<tr class="table-group-item">
+									<td>DISTANCE:</td>
+									<td>{{ form.distance }}</td>
+								</tr>
+								<tr class="table-group-item">
+									<td>TIME:</td>
+									<td>{{ form.time }}</td>
+								</tr>
+							</table>
+							<span class="input-group-btn">
+								<button type="submit" class="btn btn-default" id="add-btn">ADD</button>
+							</span>
+					</form>
+
+				</div>
+			</div>
+
+			<footer>
+				<div class="row pad">
+					<div class="col-lg-12 text-center">
+						Pedro Everett Run Tracker App
+					</div>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

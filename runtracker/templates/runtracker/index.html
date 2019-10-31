@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Run Tracker App</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="{% static 'runtracker/bs/css/flatly.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'runtracker/styles.css' %}" />
+	</head>
+	<body>
+
+		<div class="container-fluid" id="wrapper">
+			<div class="main-row">
+				<div class="main-col" id="content">
+					<h2>Your run tracker</h2>
+					<div>
+						<table class="main-table">
+							<tr>
+								<th>Date</th>
+								<th>Distance (meters)</th>
+								<th>Time (minutes)</th>
+								<th>Calories Burned</th>
+							</tr>
+							{% for run in run_list %}
+								<tr class="table-group-item">
+									<td>{{ run.date }}</td>
+									<td>{{ run.distance }}</td>
+									<td>{{ run.time }}</td>
+									<td>{{ run.calories }}</td>
+								</tr>
+							{% endfor %}
+						</table>
+						<div class="col-lg-12">
+							<div class="btn-toolbar">
+								<div class="btn-group">
+									<a href="{% url 'formm' %}"><button type="button" class="btn btn-warning">
+										<i class="glyphicon glyphicon-trash"></i> Add Run
+									</button></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+			<footer>
+				<div class="row pad">
+					<div class="col-lg-12 text-center">
+						Pedro Everett Run Tracker App
+					</div>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>
