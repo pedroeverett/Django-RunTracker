@@ -7,7 +7,7 @@ from .models import Runtracker
 from .forms import RuntrackerForm
 
 def index(request):
-    run_list = Runtracker.objects.order_by('id')
+    run_list = Runtracker.objects.order_by('-date')
     newRunList = Runtracker.objects.all()
 
     for run in newRunList:
